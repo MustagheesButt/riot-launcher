@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.13.1" target_tk="gtk-4.0">
+  <ui>
+	(1,None,"launcher.ui","launcher.ui",None,None,None,None,None,None,None)
+  </ui>
+  <object>
+	(1,1,"AdwApplicationWindow","main_window",None,None,None,None,None,None),
+	(1,81,"AdwViewStack","stk1",1,None,None,None,1,None),
+	(1,82,"AdwViewStackPage","page-login",81,None,None,None,None,None),
+	(1,83,"GtkBox",None,82,None,None,None,None,None),
+	(1,84,"GtkBox","pl-side",83,None,None,None,None,None),
+	(1,85,"GtkImage",None,84,None,None,None,None,None),
+	(1,86,"GtkLabel",None,84,None,None,None,1,None),
+	(1,87,"GtkEntry","pl-username",84,None,None,None,2,None),
+	(1,88,"GtkPasswordEntry","pl-password",84,None,None,None,3,None),
+	(1,89,"GtkCenterBox",None,84,None,None,None,4,None),
+	(1,90,"GtkCheckButton",None,84,None,None,None,5,None),
+	(1,91,"GtkButton",None,84,None,None,None,6,None),
+	(1,92,"GtkBox",None,83,None,None,None,1,None),
+	(1,93,"AdwViewStackPage","page-main",81,None,None,None,1,None),
+	(1,94,"GtkBox",None,93,None,None,None,None,None),
+	(1,95,"GtkLabel",None,94,None,None,None,None,None),
+	(1,96,"AdwViewStackPage","page-game",81,None,None,None,2,None),
+	(1,97,"GtkBox",None,96,None,None,None,None,None)
+  </object>
+  <object_property>
+	(1,1,"GtkWindow","default-height","720",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","default-width","1280",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","resizable","False",None,None,None,None,None,None,None,None,None),
+	(1,1,"GtkWindow","title","Launcher",None,None,None,None,None,None,None,None,None),
+	(1,82,"AdwViewStackPage","child",None,None,None,None,None,83,None,None,None,None),
+	(1,82,"AdwViewStackPage","name","login",None,None,None,None,None,None,None,None,None),
+	(1,82,"AdwViewStackPage","title","Login",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","css-classes","page-login-side\nbg-white",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","width-request","384",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkImage","file","images/riot-logo.png",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkImage","pixel-size","128",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkImage","resource","/res/images/riot-logo.png",None,None,None,None,None,None,None,None,None),
+	(1,86,"GtkLabel","label","Sign in",None,None,None,None,None,None,None,None,None),
+	(1,86,"GtkWidget","css-classes","page-login-sign-in",None,None,None,None,None,None,None,None,None),
+	(1,86,"GtkWidget","margin-bottom","8",None,None,None,None,None,None,None,None,None),
+	(1,87,"GtkEntry","placeholder-text","Username",None,None,None,None,None,None,None,None,None),
+	(1,87,"GtkWidget","margin-bottom","8",None,None,None,None,None,None,None,None,None),
+	(1,88,"GtkPasswordEntry","placeholder-text","Password",None,None,None,None,None,None,None,None,None),
+	(1,88,"GtkWidget","margin-bottom","8",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkCheckButton","label","Stay signed in",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkWidget","margin-bottom","24",None,None,None,None,None,None,None,None,None),
+	(1,91,"GtkButton","icon-name","go-next-symbolic",None,None,None,None,None,None,None,None,None),
+	(1,91,"GtkWidget","halign","center",None,None,None,None,None,None,None,None,None),
+	(1,91,"GtkWidget","margin-bottom","24",None,None,None,None,None,None,None,None,None),
+	(1,91,"GtkWidget","valign","end",None,None,None,None,None,None,None,None,None),
+	(1,91,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,92,"GtkWidget","css-classes","splash",None,None,None,None,None,None,None,None,None),
+	(1,92,"GtkWidget","hexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,92,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,93,"AdwViewStackPage","child",None,None,None,None,None,94,None,None,None,None),
+	(1,93,"AdwViewStackPage","name","main",None,None,None,None,None,None,None,None,None),
+	(1,93,"AdwViewStackPage","title","Main",None,None,None,None,None,None,None,None,None),
+	(1,95,"GtkLabel","label","Main",None,None,None,None,None,None,None,None,None),
+	(1,96,"AdwViewStackPage","child",None,None,None,None,None,97,None,None,None,None),
+	(1,96,"AdwViewStackPage","name","game",None,None,None,None,None,None,None,None,None),
+	(1,96,"AdwViewStackPage","title","Game",None,None,None,None,None,None,None,None,None)
+  </object_property>
+</cambalache-project>

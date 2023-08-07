@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="res">
+    <file compressed="true" preprocess="xml-stripblanks">launcher.ui</file>
+    <file compressed="true">images/riot-logo.png</file>
+    <file compressed="true">images/login-splash.jpg</file>
+    <file compressed="true">styles.css</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,22 @@
+.bg-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.header-bar {
+  background-color: transparent;
+}
+
+.page-login-side {
+  padding: 5rem;
+}
+
+.page-login-sign-in {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.splash {
+  background-image: url("resource:///res/images/login-splash.jpg");
+  background-size: cover;
+}

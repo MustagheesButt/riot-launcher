@@ -10,98 +10,107 @@
     <property name="resizable">False</property>
     <property name="title">Launcher</property>
     <child>
-      <object class="AdwViewStack" id="stk1">
+      <object class="GtkOverlay">
         <child>
-          <object class="AdwViewStackPage" id="page-login">
-            <property name="child">
-              <object class="GtkBox">
-                <child>
-                  <object class="GtkBox" id="pl-side">
-                    <property name="css-classes">page-login-side
+          <object class="AdwViewStack" id="stk1">
+            <child>
+              <object class="AdwViewStackPage" id="page-login">
+                <property name="child">
+                  <object class="GtkBox">
+                    <child>
+                      <object class="GtkBox" id="pl-side">
+                        <property name="css-classes">page-login-side
 bg-white</property>
-                    <property name="orientation">vertical</property>
-                    <property name="width-request">384</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="file">images/riot-logo.png</property>
-                        <property name="pixel-size">128</property>
-                        <property name="resource">/res/images/riot-logo.png</property>
+                        <property name="orientation">vertical</property>
+                        <property name="width-request">384</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="file">images/riot-logo.png</property>
+                            <property name="pixel-size">128</property>
+                            <property name="resource">/res/images/riot-logo.png</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="css-classes">page-login-sign-in</property>
+                            <property name="label">Sign in</property>
+                            <property name="margin-bottom">8</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="pl-username">
+                            <property name="margin-bottom">8</property>
+                            <property name="placeholder-text">Username</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkPasswordEntry" id="pl-password">
+                            <property name="margin-bottom">8</property>
+                            <property name="placeholder-text">Password</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCenterBox"/>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton">
+                            <property name="label">Stay signed in</property>
+                            <property name="margin-bottom">24</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="halign">center</property>
+                            <property name="icon-name">go-next-symbolic</property>
+                            <property name="margin-bottom">24</property>
+                            <property name="valign">end</property>
+                            <property name="vexpand">True</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkLabel">
-                        <property name="css-classes">page-login-sign-in</property>
-                        <property name="label">Sign in</property>
-                        <property name="margin-bottom">8</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkEntry" id="pl-username">
-                        <property name="margin-bottom">8</property>
-                        <property name="placeholder-text">Username</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkPasswordEntry" id="pl-password">
-                        <property name="margin-bottom">8</property>
-                        <property name="placeholder-text">Password</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkCenterBox"/>
-                    </child>
-                    <child>
-                      <object class="GtkCheckButton">
-                        <property name="label">Stay signed in</property>
-                        <property name="margin-bottom">24</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkButton">
-                        <property name="halign">center</property>
-                        <property name="icon-name">go-next-symbolic</property>
-                        <property name="margin-bottom">24</property>
-                        <property name="valign">end</property>
+                      <object class="GtkBox">
+                        <property name="css-classes">splash</property>
+                        <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                       </object>
                     </child>
                   </object>
-                </child>
-                <child>
+                </property>
+                <property name="name">login</property>
+                <property name="title">Login</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwViewStackPage" id="page-main">
+                <property name="child">
                   <object class="GtkBox">
-                    <property name="css-classes">splash</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label">Main</property>
+                      </object>
+                    </child>
                   </object>
-                </child>
+                </property>
+                <property name="name">main</property>
+                <property name="title">Main</property>
               </object>
-            </property>
-            <property name="name">login</property>
-            <property name="title">Login</property>
+            </child>
+            <child>
+              <object class="AdwViewStackPage" id="page-game">
+                <property name="child">
+                  <object class="GtkBox"/>
+                </property>
+                <property name="name">game</property>
+                <property name="title">Game</property>
+              </object>
+            </child>
           </object>
         </child>
-        <child>
-          <object class="AdwViewStackPage" id="page-main">
-            <property name="child">
-              <object class="GtkBox">
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label">Main</property>
-                  </object>
-                </child>
-              </object>
-            </property>
-            <property name="name">main</property>
-            <property name="title">Main</property>
-          </object>
-        </child>
-        <child>
-          <object class="AdwViewStackPage" id="page-game">
-            <property name="child">
-              <object class="GtkBox"/>
-            </property>
-            <property name="name">game</property>
-            <property name="title">Game</property>
+        <child type="overlay">
+          <object class="AdwHeaderBar">
+            <property name="valign">start</property>
           </object>
         </child>
       </object>

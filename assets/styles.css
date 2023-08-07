@@ -3,8 +3,13 @@
   color: #000000;
 }
 
-.header-bar {
+headerbar {
   background-color: transparent;
+  box-shadow: none;
+}
+
+headerbar .title {
+  opacity: 0;
 }
 
 .page-login-side {

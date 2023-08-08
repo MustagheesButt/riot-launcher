@@ -18,7 +18,7 @@
                 <property name="child">
                   <object class="GtkBox">
                     <child>
-                      <object class="GtkBox" id="pl-side">
+                      <object class="GtkBox" id="page-login-side">
                         <property name="css-classes">page-login-side
 bg-white</property>
                         <property name="orientation">vertical</property>
@@ -38,13 +38,13 @@ bg-white</property>
                           </object>
                         </child>
                         <child>
-                          <object class="GtkEntry" id="pl-username">
+                          <object class="GtkEntry" id="page-login-username">
                             <property name="margin-bottom">8</property>
                             <property name="placeholder-text">Username</property>
                           </object>
                         </child>
                         <child>
-                          <object class="GtkPasswordEntry" id="pl-password">
+                          <object class="GtkPasswordEntry" id="page-login-password">
                             <property name="margin-bottom">8</property>
                             <property name="placeholder-text">Password</property>
                           </object>
@@ -53,13 +53,13 @@ bg-white</property>
                           <object class="GtkCenterBox"/>
                         </child>
                         <child>
-                          <object class="GtkCheckButton">
+                          <object class="GtkCheckButton" id="page-login-remember-me">
                             <property name="label">Stay signed in</property>
                             <property name="margin-bottom">24</property>
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton">
+                          <object class="GtkButton" id="page-login-btn">
                             <property name="halign">center</property>
                             <property name="icon-name">go-next-symbolic</property>
                             <property name="margin-bottom">24</property>

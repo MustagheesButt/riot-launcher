@@ -22,9 +22,17 @@
 	(1,145,"GtkBox",None,136,None,None,None,1,None),
 	(1,146,"AdwViewStackPage","page-main",134,None,None,None,1,None),
 	(1,147,"GtkBox",None,146,None,None,None,None,None),
-	(1,148,"GtkLabel",None,147,None,None,None,None,None),
 	(1,149,"AdwViewStackPage","page-game",134,None,None,None,2,None),
-	(1,150,"GtkBox",None,149,None,None,None,None,None)
+	(1,150,"GtkBox",None,149,None,None,None,None,None),
+	(1,151,"GtkBox",None,147,None,None,None,None,None),
+	(1,152,"GtkBox",None,147,None,None,None,1,None),
+	(1,153,"GtkBox",None,147,None,None,None,2,None),
+	(1,154,"GtkImage",None,151,None,None,None,None,None),
+	(1,155,"GtkLabel",None,151,None,None,None,1,None),
+	(1,156,"GtkGrid",None,151,None,None,None,2,None),
+	(1,157,"GtkLabel",None,152,None,None,None,None,None),
+	(1,158,"GtkLabel",None,153,None,None,None,None,None),
+	(1,159,"GtkGrid",None,152,None,None,None,1,None)
   </object>
   <object_property>
 	(1,1,"GtkWindow","default-height","720",None,None,None,None,None,None,None,None,None),
@@ -61,9 +69,26 @@
 	(1,146,"AdwViewStackPage","child",None,None,None,None,None,147,None,None,None,None),
 	(1,146,"AdwViewStackPage","name","main",None,None,None,None,None,None,None,None,None),
 	(1,146,"AdwViewStackPage","title","Main",None,None,None,None,None,None,None,None,None),
-	(1,148,"GtkLabel","label","Main",None,None,None,None,None,None,None,None,None),
+	(1,147,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
 	(1,149,"AdwViewStackPage","child",None,None,None,None,None,150,None,None,None,None),
 	(1,149,"AdwViewStackPage","name","game",None,None,None,None,None,None,None,None,None),
-	(1,149,"AdwViewStackPage","title","Game",None,None,None,None,None,None,None,None,None)
+	(1,149,"AdwViewStackPage","title","Game",None,None,None,None,None,None,None,None,None),
+	(1,151,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,151,"GtkWidget","css-classes","px-28",None,None,None,None,None,None,None,None,None),
+	(1,152,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,152,"GtkWidget","css-classes","px-28",None,None,None,None,None,None,None,None,None),
+	(1,153,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,153,"GtkWidget","css-classes","px-28",None,None,None,None,None,None,None,None,None),
+	(1,154,"GtkImage","pixel-size","128",None,None,None,None,None,None,None,None,None),
+	(1,154,"GtkImage","resource","/res/images/riot-logo-white.png",None,None,None,None,None,None,None,None,None),
+	(1,155,"GtkLabel","label","My Games",None,None,None,None,None,None,None,None,None),
+	(1,155,"GtkWidget","css-classes","h1",None,None,None,None,None,None,None,None,None),
+	(1,155,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
+	(1,157,"GtkLabel","label","All Games",None,None,None,None,None,None,None,None,None),
+	(1,157,"GtkWidget","css-classes","h1",None,None,None,None,None,None,None,None,None),
+	(1,157,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None),
+	(1,158,"GtkLabel","label","Special Events",None,None,None,None,None,None,None,None,None),
+	(1,158,"GtkWidget","css-classes","h1",None,None,None,None,None,None,None,None,None),
+	(1,158,"GtkWidget","halign","start",None,None,None,None,None,None,None,None,None)
   </object_property>
 </cambalache-project>

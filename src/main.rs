@@ -1,8 +1,9 @@
 use adw::{Application, ApplicationWindow, ViewStack};
 use error_chain::error_chain;
 use gtk::gdk::Display;
-use gtk::{gio, glib, CssProvider, STYLE_PROVIDER_PRIORITY_APPLICATION};
-use gtk::{prelude::*, Button};
+use gtk::glib::{clone, MainContext, Priority};
+use gtk::{gio, glib, CssProvider, STYLE_PROVIDER_PRIORITY_APPLICATION, Button};
+use gtk::prelude::*;
 use std::io::Read;
 use std::rc::Rc;
 
@@ -64,13 +65,35 @@ fn build_ui(app: &Application) {
 }
 
 fn setup_login(btn: &Button, stack: Rc<ViewStack>) {
-    btn.connect_clicked(move |btn: &Button| {
-        login(btn).expect("Something went wrong");
-        stack.set_visible_child_name("main");
+    let (sender, receiver) = MainContext::channel(Priority::default());
+
+    btn.connect_clicked(move |_btn: &Button| {
+        let sender = sender.clone();
+
+        gio::spawn_blocking(move || {
+            let _ = sender.send(false);
+            if let Err(err) = login() {
+                eprintln!("Error: {:?}", err);
+            }
+            let _ = sender.send(true);
+        });
     });
+
+    receiver.attach(
+        None,
+        clone!(@weak btn => @default-return glib::ControlFlow::Break,
+            move |enable_button| {
+                btn.set_sensitive(enable_button);
+                if enable_button {
+                    stack.set_visible_child_name("main");
+                }
+                glib::ControlFlow::Continue
+            }
+        )
+    );
 }
 
-fn login(_btn: &Button) -> Result<()> {
+fn login() -> Result<()> {
     let mut res = reqwest::blocking::get("http://httpbin.org/get")?;
     let mut body = String::new();
     res.read_to_string(&mut body)?;

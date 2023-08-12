@@ -34,3 +34,7 @@ headerbar .title {
   background-image: url("resource:///res/images/login-splash.jpg");
   background-size: cover;
 }
+
+.game-card > picture {
+  border-radius: 1rem;
+}

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.13.1 -->
+<interface>
+  <requires lib="gtk" version="4.10"/>
+  <template class="GameCard" parent="GtkBox">
+    <property name="css-classes">game-card</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkPicture" id="image">
+        <property name="content-fit">cover</property>
+        <property name="height-request">156</property>
+        <property name="width-request">256</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">8</property>
+        <child>
+          <object class="GtkImage" id="icon">
+            <property name="pixel-size">64</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="name"/>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

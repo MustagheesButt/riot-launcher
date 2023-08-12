@@ -1,11 +1,17 @@
+mod game_card;
+mod game;
+
 use adw::{Application, ApplicationWindow, ViewStack};
 use error_chain::error_chain;
 use gtk::gdk::Display;
 use gtk::glib::{clone, MainContext, Priority};
-use gtk::{gio, glib, CssProvider, STYLE_PROVIDER_PRIORITY_APPLICATION, Button};
 use gtk::prelude::*;
+use gtk::{gio, glib, Button, CssProvider, FlowBox, STYLE_PROVIDER_PRIORITY_APPLICATION};
 use std::io::Read;
 use std::rc::Rc;
+
+use game_card::GameCard;
+use game::Game;
 
 const APP_ID: &str = "com.buttg.RiotLauncher";
 
@@ -60,11 +66,13 @@ fn build_ui(app: &Application) {
     let login_btn: Button = builder
         .object("page-login-btn")
         .expect("Couldn't get login button");
+    let my_games: FlowBox = builder.object("my-games").expect("Couldn't get my-games");
 
-    setup_login(&login_btn, stack.clone().into());
+    post_login(stack.clone().into(), my_games.clone().into());
+    setup_login(&login_btn, stack.into(), my_games.into());
 }
 
-fn setup_login(btn: &Button, stack: Rc<ViewStack>) {
+fn setup_login(btn: &Button, stack: Rc<ViewStack>, my_games: Rc<FlowBox>) {
     let (sender, receiver) = MainContext::channel(Priority::default());
 
     btn.connect_clicked(move |_btn: &Button| {
@@ -84,12 +92,12 @@ fn setup_login(btn: &Button, stack: Rc<ViewStack>) {
         clone!(@weak btn => @default-return glib::ControlFlow::Break,
             move |enable_button| {
                 btn.set_sensitive(enable_button);
-                if enable_button {
-                    stack.set_visible_child_name("main");
+                if enable_button { // need better way of knowing that we have logged in
+                    post_login(stack.clone(), my_games.clone());
                 }
                 glib::ControlFlow::Continue
             }
-        )
+        ),
     );
 }
 
@@ -103,4 +111,19 @@ fn login() -> Result<()> {
     println!("Body:\n{}", body);
 
     Ok(())
+}
+
+fn post_login(stack: Rc<ViewStack>, my_games: Rc<FlowBox>) {
+    stack.set_visible_child_name("main");
+
+    let games = vec![
+        Game::new("League of Legends", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
+        Game::new("Wild Rift", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
+        Game::new("VALORANT", "/res/images/riot-logo-white.png", "/res/images/thumb-valo.jpg"),
+    ];
+
+    for game in games {
+        let gc = GameCard::new(&game.name, &game.thumbnail, &game.icon);
+        my_games.append(&gc);
+    }
 }

@@ -111,8 +111,8 @@ bg-white</property>
                               <object class="GtkFlowBox" id="my-games">
                                 <property name="column-spacing">16</property>
                                 <property name="homogeneous">True</property>
-                                <property name="margin-bottom">8</property>
-                                <property name="margin-top">8</property>
+                                <property name="margin-bottom">128</property>
+                                <property name="margin-top">32</property>
                                 <property name="max-children-per-line">4</property>
                                 <property name="min-children-per-line">4</property>
                               </object>
@@ -121,7 +121,9 @@ bg-white</property>
                         </child>
                         <child>
                           <object class="GtkBox">
-                            <property name="css-classes">px-28</property>
+                            <property name="css-classes">px-28
+py-28
+bg-zinc-900</property>
                             <property name="orientation">vertical</property>
                             <child>
                               <object class="GtkLabel">
@@ -131,15 +133,21 @@ bg-white</property>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkGrid">
-                                <property name="height-request">320</property>
+                              <object class="GtkFlowBox" id="all-games">
+                                <property name="column-spacing">16</property>
+                                <property name="homogeneous">True</property>
+                                <property name="margin-bottom">8</property>
+                                <property name="margin-top">32</property>
+                                <property name="max-children-per-line">3</property>
+                                <property name="min-children-per-line">3</property>
                               </object>
                             </child>
                           </object>
                         </child>
                         <child>
                           <object class="GtkBox">
-                            <property name="css-classes">px-28</property>
+                            <property name="css-classes">px-28
+py-28</property>
                             <property name="orientation">vertical</property>
                             <child>
                               <object class="GtkLabel">

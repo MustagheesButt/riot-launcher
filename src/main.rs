@@ -67,12 +67,12 @@ fn build_ui(app: &Application) {
         .object("page-login-btn")
         .expect("Couldn't get login button");
     let my_games: FlowBox = builder.object("my-games").expect("Couldn't get my-games");
+    let all_games: FlowBox = builder.object("all-games").expect("Couldn't get all-games");
 
-    post_login(stack.clone().into(), my_games.clone().into());
-    setup_login(&login_btn, stack.into(), my_games.into());
+    setup_login(&login_btn, stack.into(), my_games.into(), all_games.into());
 }
 
-fn setup_login(btn: &Button, stack: Rc<ViewStack>, my_games: Rc<FlowBox>) {
+fn setup_login(btn: &Button, stack: Rc<ViewStack>, my_games: Rc<FlowBox>, all_games: Rc<FlowBox>) {
     let (sender, receiver) = MainContext::channel(Priority::default());
 
     btn.connect_clicked(move |_btn: &Button| {
@@ -93,7 +93,7 @@ fn setup_login(btn: &Button, stack: Rc<ViewStack>, my_games: Rc<FlowBox>) {
             move |enable_button| {
                 btn.set_sensitive(enable_button);
                 if enable_button { // need better way of knowing that we have logged in
-                    post_login(stack.clone(), my_games.clone());
+                    post_login(stack.clone(), my_games.clone(), all_games.clone());
                 }
                 glib::ControlFlow::Continue
             }
@@ -113,17 +113,26 @@ fn login() -> Result<()> {
     Ok(())
 }
 
-fn post_login(stack: Rc<ViewStack>, my_games: Rc<FlowBox>) {
+fn post_login(stack: Rc<ViewStack>, my_games: Rc<FlowBox>, all_games: Rc<FlowBox>) {
     stack.set_visible_child_name("main");
 
     let games = vec![
         Game::new("League of Legends", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
-        Game::new("Wild Rift", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
+        Game::new("League of Legends: Wild Rift", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
         Game::new("VALORANT", "/res/images/riot-logo-white.png", "/res/images/thumb-valo.jpg"),
+        Game::new("Teamfight Tactics", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
+        Game::new("Legends of Runeterra", "/res/images/riot-logo-white.png", "/res/images/thumb-lol.png"),
     ];
+
+    for game in &games[0 .. 3] {
+        let gc = GameCard::new(&game.name, &game.thumbnail, &game.icon);
+        gc.set_height_request(210);
+        my_games.append(&gc);
+    }
 
     for game in games {
         let gc = GameCard::new(&game.name, &game.thumbnail, &game.icon);
-        my_games.append(&gc);
+        gc.set_height_request(280);
+        all_games.append(&gc);
     }
 }

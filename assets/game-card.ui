@@ -8,8 +8,6 @@
     <child>
       <object class="GtkPicture" id="image">
         <property name="content-fit">cover</property>
-        <property name="height-request">156</property>
-        <property name="width-request">256</property>
       </object>
     </child>
     <child>
